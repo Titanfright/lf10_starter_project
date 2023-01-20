@@ -7,28 +7,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
-import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
-import { HeaderComponent } from './header/header.component';
-import {FormsModule} from "@angular/forms";
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { SkillForFormsComponent } from './skill-for-forms/skill-for-forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeListComponent,
-    EditEmployeeComponent,
-    HeaderComponent,
-    AddEmployeeComponent,
-    SkillForFormsComponent
+    EmployeeListComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        KeycloakAngularModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    KeycloakAngularModule
+  ],
   providers: [
     {
       provide: APP_INITIALIZER,
