@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
+import {EMPLOYEES} from "../mock-employees";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {KeycloakService} from "keycloak-angular";
 
