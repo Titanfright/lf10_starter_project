@@ -1,0 +1,27 @@
+/* Table Styling  */
+table.Table {
+  width: 50%;
+  background-color:#f2fffc;
+  font-family:Arial, sans-serif;
+  border-collapse:collapse;
+  color:#040308;
+}
+
+table.Table td, table.Table th {
+}
+
+table.Table thead {
+
+}
+
+.container {
+  padding: 10rem 0px 1rem 20px;
+
+}
+
+tr, td {
+  padding: 1.5rem 0px 20px;
+  border-bottom: 1px solid #040308;
+}
+
+

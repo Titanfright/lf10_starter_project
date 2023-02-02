@@ -1,16 +1,10 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component} from "@angular/core";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
-})
-export class HeaderComponent {
+  selector: 'app-header-component',
+  templateUrl: '/header.component.html',
+  styleUrls: ['/header.component.css']
 
-  constructor(private router: Router) {
-  }
-  openHome(){
-    this.router.navigate(['employee']);
-  }
-}
+})
+
+export class HeaderComponent {}
