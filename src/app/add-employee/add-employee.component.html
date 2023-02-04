@@ -1,0 +1,43 @@
+<app-header></app-header>
+<body>
+<Form>
+  <table>
+    <div *ngIf="e">
+      <tr>
+        <td>Firstname:</td>
+        <td><input id="firstName" class="textBox" [(ngModel)]="e.firstName" placeholder="Firstname"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Lastname: </td>
+        <td><input id="lastName" class="textBox" [(ngModel)]="e.lastName" placeholder="Lastname"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Street: </td>
+        <td><input id="street" class="textBox" [(ngModel)]="e.street" placeholder="Street"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Postcode: </td>
+        <td><input id="postcode" class="textBox" [(ngModel)]="e.postcode" placeholder="Postcode"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>City: </td>
+        <td><input id="city" class="textBox" [(ngModel)]="e.city" placeholder="City"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Phone: </td>
+        <td><input id="phone" class="textBox" [(ngModel)]="e.phone" placeholder="Phone"></td>
+        <td></td>
+      </tr>
+
+      <td></td>
+      <td><button type="button" (click)="createEmployee()">Create Employee</button></td>
+      <td><button type="button">Close</button></td>
+    </div>
+  </table>
+</Form>
+</body>

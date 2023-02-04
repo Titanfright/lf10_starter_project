@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
-import {EMPLOYEES} from "../mock-employees";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {KeycloakService} from "keycloak-angular";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -19,10 +19,11 @@ export class EmployeeListComponent {
     xmlHttp.send( "grant_type=password&client_id=employee-management-service&username=user&password=test" );
     return JSON.parse(xmlHttp.responseText)["access_token"]
   }
+
   employees$: Observable<Employee[]>;
 
   user = "";
-  constructor(private http: HttpClient, private keycloakService: KeycloakService) {
+  constructor(private http: HttpClient, private keycloakService: KeycloakService, private router: Router) {
     this.employees$ = of([]);
     this.fetchData();
   }
@@ -32,7 +33,7 @@ export class EmployeeListComponent {
   }
 
   fetchData() {
-    this.employees$ = this.http.get<Employee[]>('/backend', {
+    this.employees$ = this.http.get<Employee[]>('/backend/employees', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
         .set('Authorization', `Bearer ${this.get_bearer()}`)
@@ -43,8 +44,11 @@ export class EmployeeListComponent {
     this.user = this.keycloakService.getUsername();
   }
 
+  openNewEmployee(){
+    this.router.navigate(['employee-add']);
+  }
+
   logout(): void{
     this.keycloakService.logout();
   }
-
 }

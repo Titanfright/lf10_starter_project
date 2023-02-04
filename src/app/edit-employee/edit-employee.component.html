@@ -1,0 +1,49 @@
+<app-header></app-header>
+<body>
+<Form>
+  <table>
+    <div *ngIf="e">
+    <tr>
+    <td>ID</td>
+    <td>{{ e.id }}</td>
+      <td></td>
+    </tr>
+      <tr>
+    <td>Firstname:</td>
+    <td><input id="firstName" class="textBox" [(ngModel)]="e.firstName"></td>
+        <td></td>
+  </tr>
+    <tr>
+    <td>Lastname: </td>
+    <td><input id="lastName" class="textBox" [(ngModel)]="e.lastName"></td>
+      <td></td>
+    </tr>
+    <tr>
+  <td>Street: </td>
+  <td><input id="street" class="textBox" [(ngModel)]="e.street"></td>
+      <td></td>
+    </tr>
+    <tr>
+  <td>Postcode: </td>
+  <td><input id="postcode" class="textBox" [(ngModel)]="e.postcode"></td>
+      <td></td>
+    </tr>
+    <tr>
+    <td>City: </td>
+    <td><input id="city" class="textBox" [(ngModel)]="e.city"></td>
+      <td></td>
+    </tr>
+    <tr>
+    <td>Phone: </td>
+    <td><input id="phone" class="textBox" [(ngModel)]="e.phone"></td>
+      <td></td>
+    </tr>
+
+    <td></td>
+    <td><button type="button" (click)="save()">Save</button></td>
+    <td><button type="button" (click)="delete()">Delete</button></td>
+    </div>
+  </table>
+</Form>
+</body>
+

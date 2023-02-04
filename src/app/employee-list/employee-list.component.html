@@ -11,7 +11,7 @@
   <div *ngFor="let e of employees$ | async">
     <p>
       {{e.lastName}}, {{e.firstName}}
-      <a href="/employee-edit"> <!-- TODO: transfer employee id -->
+      <a routerLink="/employee-edit/{{ e.id }}">
         <img src="https://site-assets.fontawesome.com/releases/v5.15.4/svgs/solid/edit.svg" style="height: 0.8em">
       </a>
     </p>
@@ -19,4 +19,5 @@
   </div>
 </div>
 
+<button type="button" (click)="openNewEmployee()">New Employee</button>
 <button type="button" (click)="logout()">logout</button>
