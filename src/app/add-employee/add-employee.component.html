@@ -21,7 +21,6 @@
       <tr>
         <td>Postcode: </td>
         <td><input id="postcode" class="textBox" [(ngModel)]="e.postcode" placeholder="Postcode"></td>
-        <div id="errorPostcodeAdd" style="display: none"></div>
         <td></td>
       </tr>
       <tr>
@@ -34,7 +33,7 @@
         <td><input id="phone" class="textBox" [(ngModel)]="e.phone" placeholder="Phone"></td>
         <td></td>
       </tr>
-      <app-skill-for-forms></app-skill-for-forms>
+
       <td></td>
       <td><button type="button" (click)="createEmployee()">Create Employee</button></td>
       <td><button type="button">Close</button></td>

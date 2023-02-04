@@ -26,7 +26,6 @@
     <tr>
   <td>Postcode: </td>
   <td><input id="postcode" class="textBox" [(ngModel)]="e.postcode"></td>
-      <div id="errorPostcodeEdit" style="display: none"></div>
       <td></td>
     </tr>
     <tr>
@@ -39,7 +38,7 @@
     <td><input id="phone" class="textBox" [(ngModel)]="e.phone"></td>
       <td></td>
     </tr>
-      <app-skill-for-forms></app-skill-for-forms>
+
     <td></td>
     <td><button type="button" (click)="save()">Save</button></td>
     <td><button type="button" (click)="delete()">Delete</button></td>
