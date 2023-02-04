@@ -3,6 +3,7 @@ import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {KeycloakService} from "keycloak-angular";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,11 +12,18 @@ import {KeycloakService} from "keycloak-angular";
 })
 export class EmployeeListComponent {
 
-  bearer = 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzUFQ0dldiNno5MnlQWk1EWnBqT1U0RjFVN0lwNi1ELUlqQWVGczJPbGU0In0.eyJleHAiOjE2NzQyNTE0NzcsImlhdCI6MTY3NDI0Nzg3NywianRpIjoiNTE5ZDVhMjctMjQ3Yy00Y2RmLThkZDUtZDNmZDQ5MWRjYjU2IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay5zenV0LmRldi9hdXRoL3JlYWxtcy9zenV0IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjU1NDZjZDIxLTk4NTQtNDMyZi1hNDY3LTRkZTNlZWRmNTg4OSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImVtcGxveWVlLW1hbmFnZW1lbnQtc2VydmljZSIsInNlc3Npb25fc3RhdGUiOiI4YjI1ZTExYy0zOWQxLTQzMWEtODg4Mi0xY2QyNzViZTVmNmUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1zenV0IiwidW1hX2F1dGhvcml6YXRpb24iLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInByZWZlcnJlZF91c2VybmFtZSI6InVzZXIifQ.eMdtQfpexnR35Byyg1tdvWMRhBYIN-fhF-AEnKfaQWU2IlfYrfX5o-RCC8AgH7aPOizkvijCQL8d9pbdWauo5eyG8Nhu9XF1XJPl4qbaDYEMASsD_SXJlgJ-G-8jLeSL_g7AkchAXiizQWgWIsgYSpNs4-BJz_t5JH6XQeiud84Si41NJ2jGJxbishzdoDle0nnDVAQ5U3ABMNm2Rd6nzGkgcj9iVOMYxiOswPKzok89lxTsG-ZjeoHJzIacAuQNkRkioZtIJutdYUG1zjyHnyh1mWNZwOYFCQ0H-_hTF3m3i5bQrMmVfC-kAXjPwDNqiJCdXcufBSqkY2s5In4xpw';
+  public get_bearer() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "POST", "http://authproxy.szut.dev", false );
+    xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xmlHttp.send( "grant_type=password&client_id=employee-management-service&username=user&password=test" );
+    return JSON.parse(xmlHttp.responseText)["access_token"]
+  }
+
   employees$: Observable<Employee[]>;
 
   user = "";
-  constructor(private http: HttpClient, private keycloakService: KeycloakService) {
+  constructor(private http: HttpClient, private keycloakService: KeycloakService, private router: Router) {
     this.employees$ = of([]);
     this.fetchData();
   }
@@ -25,10 +33,10 @@ export class EmployeeListComponent {
   }
 
   fetchData() {
-    this.employees$ = this.http.get<Employee[]>('/backend', {
+    this.employees$ = this.http.get<Employee[]>('/backend/employees', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('Authorization', `Bearer ${this.bearer}`)
+        .set('Authorization', `Bearer ${this.get_bearer()}`)
     });
   }
 
@@ -36,8 +44,11 @@ export class EmployeeListComponent {
     this.user = this.keycloakService.getUsername();
   }
 
+  openNewEmployee(){
+    this.router.navigate(['employee-add']);
+  }
+
   logout(): void{
     this.keycloakService.logout();
   }
-
 }
