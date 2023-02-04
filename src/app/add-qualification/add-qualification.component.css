@@ -1,27 +1,23 @@
-/* Table Styling  */
-table.Table {
-  width: 50%;
-  background-color:#f2fffc;
-  font-family:Arial, sans-serif;
-  border-collapse:collapse;
-  color:#040308;
+* {
+  text-decoration: none;
+  margin: 0px 1.5rem 0px 0px;
+}
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.3em 1em;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+  float: right;
 }
 
-table.Table td, table.Table th {
+.btn:hover {
+  background: #67c5ff;
+  color: white;
 }
 
-table.Table thead {
+input [type ="text"] {
 
 }
-
-.container {
-  padding: 10rem 0px 1rem 20px;
-
-}
-
-tr, td {
-  padding: 1.5rem 0px 20px;
-  border-bottom: 1px solid #040308;
-}
-
-
