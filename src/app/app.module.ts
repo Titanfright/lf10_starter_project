@@ -9,6 +9,8 @@ import {KeycloakAngularModule, KeycloakBearerInterceptor, KeycloakService} from 
 import {initializeKeycloak} from "./utility/app.init";
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { HeaderComponent } from './header/header.component';
+import {FormsModule} from "@angular/forms";
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import {AddQualificationComponent} from "./add-qualification/add-qualification.component";
 import {HeaderComponent} from "./header/header.component";
 import {ListQualificationComponent} from "./list-qualification/list-qualification.component";
@@ -32,15 +34,17 @@ export function kcFacotry(kcSecService: KeycloakService) {
     AddQualificationComponent,
     ListQualificationComponent,
     EditQualificationComponent,
+    HeaderComponent,
+    AddEmployeeComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    KeycloakAngularModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        KeycloakAngularModule,
+        FormsModule,
+      ReactiveFormsModule,
+    ],
   providers: [
     {
       provide: APP_INITIALIZER,

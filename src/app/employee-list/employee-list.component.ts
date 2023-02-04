@@ -3,6 +3,7 @@ import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {KeycloakService} from "keycloak-angular";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -15,7 +16,7 @@ export class EmployeeListComponent {
   employees$: Observable<Employee[]>;
 
   user = "";
-  constructor(private http: HttpClient, private keycloakService: KeycloakService) {
+  constructor(private http: HttpClient, private keycloakService: KeycloakService, private router: Router) {
     this.employees$ = of([]);
     this.fetchData();
   }
@@ -34,6 +35,10 @@ export class EmployeeListComponent {
 
   private initializeUserOptions(): void{
     this.user = this.keycloakService.getUsername();
+  }
+
+  openNewEmployee(){
+    this.router.navigate(['employee-add']);
   }
 
   logout(): void{
