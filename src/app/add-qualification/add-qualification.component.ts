@@ -1,4 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {QualificationApiService} from "../QualificationApiService";
 
 @Component({
   selector: 'app-add-qualification',
@@ -7,8 +9,26 @@ import {Component, OnInit} from "@angular/core";
 
   })
 
-export class AddQualificationComponent {
+export class AddQualificationComponent implements OnInit {
 
-  constructor() {
+  @Input() qualificationsDetails = {qualification: ''};
+
+  constructor(public router: Router,
+              public callApiService: QualificationApiService) {}
+
+  ngOnInit() {}
+
+  addQualification(dataQualification: any) {
+    this.callApiService.createQualification(this.qualificationsDetails)
+      .subscribe((data: {}) => {
+        this.router.navigate(['/list-qualification']);
+      });
   }
+
+  /*onSubmit() {
+    this.callApiService.createQualification(this.addQualification)
+      .subscribe( data => {
+        this.router.navigate(['/qualification-list']);
+      });
+  } */
 }

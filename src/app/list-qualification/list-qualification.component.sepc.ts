@@ -1,19 +1,19 @@
 import {ComponentFixture, TestBed} from "@angular/core/testing";
-import {AddQualificationComponent} from "./add-qualification.component";
+import {ListQualificationComponent} from "./list-qualification.component";
 
-describe('AddQualificationComponent', () => {
-  let component: AddQualificationComponent;
-  let fixture: ComponentFixture<AddQualificationComponent>;
+describe('ListQualificationComponent', () => {
+  let component: ListQualificationComponent;
+  let fixture: ComponentFixture<ListQualificationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddQualificationComponent ]
+      declarations: [ ListQualificationComponent ]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddQualificationComponent);
+    fixture = TestBed.createComponent(ListQualificationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
