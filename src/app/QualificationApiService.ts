@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
 import {Qualification} from "./Qualification";
+import {TokenInterceptorService} from "../token-interceptor.service";
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,8 @@ import {Qualification} from "./Qualification";
 export class QualificationApiService {
   //Define the Qualification API
   baseURL = 'http://localhost:8089';
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+              private interceptorService: TokenInterceptorService) {}
 
   /*===================
      CRUD Methods
@@ -17,12 +19,13 @@ export class QualificationApiService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
+      Authorization: 'Bearer '
     }),
   };
 
   getQualifications(): Observable<Qualification[]> {
       return this.httpClient.get<Qualification[]>(this.baseURL + '/qualifications')
-        .pipe(retry(2));
+        .pipe(retry(1));
     }
 
     getQualificationById(id: any): Observable<Qualification> {
