@@ -21,3 +21,34 @@
 input [type ="text"] {
 
 }
+/* ng-dirty is an angular property that takes effect when a field is edited = ok
+or interact with a field/input  */
+.ng-dirty {
+
+}
+
+/* ng-pristine is an angular property that takes effect if a field has not yet been edited = invalid  */
+.ng-pristine {
+
+}
+/* ng-valid checked is a input or field ok or invalid maybe you can
+return a green background when the field is filled out correctly */
+.ng-valid {
+
+}
+
+/* Read RegExp character for pattern in html */
+
+/*Short or long interaction with a field or input attention/focus on the field is here the word */
+ng-touched {
+
+}
+/* the user have not interact with a inputs/fields */
+ng-untouched {
+
+}
+
+/* custom valid backend check optimization  */
+ng-pending {
+
+}
