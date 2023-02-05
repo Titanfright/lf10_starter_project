@@ -12,7 +12,6 @@ export class EditQualificationComponent implements OnInit{
 
   id = this.actRoute.snapshot.params['id'];
   qualificationData: any = {};
-  q: Qualification | undefined;
   constructor(public callApiService: QualificationApiService,
               public actRoute: ActivatedRoute,
               public router: Router)  {}
