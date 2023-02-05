@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {QualificationApiService} from "../QualificationApiService";
 import {HttpClient} from "@angular/common/http";
+import {Qualification} from "../Qualification";
 
 @Component({
   selector: 'app-add-qualification',
@@ -11,7 +12,6 @@ import {HttpClient} from "@angular/common/http";
   })
 
 export class AddQualificationComponent implements OnInit {
-
   @Input() qualificationsDetails = {qualification: ''};
 
   constructor(public router: Router,
@@ -19,7 +19,7 @@ export class AddQualificationComponent implements OnInit {
               public httpClient: HttpClient) {}
 
   ngOnInit() {
-    this.httpClient.get('http://localhost:4200/header', {observe: "response"})
+    this.httpClient.get('http://localhost:8089/qualifications', {observe: "response"})
       .subscribe(data => {
         console.log(data);
     })
@@ -28,7 +28,7 @@ export class AddQualificationComponent implements OnInit {
   addQualification(dataQualification: any) {
     this.callApiService.createQualification(this.qualificationsDetails)
       .subscribe((data: {}) => {
-        this.router.navigate(['/add-qualification']);
+        this.router.navigate(['/qualifications']);
       });
   }
   /*onSubmit() {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {QualificationApiService} from "../QualificationApiService";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Qualification} from "../Qualification";
 
 @Component({
   selector: 'app-edit-qualification',
@@ -11,6 +12,7 @@ export class EditQualificationComponent implements OnInit{
 
   id = this.actRoute.snapshot.params['id'];
   qualificationData: any = {};
+  q: Qualification | undefined;
   constructor(public callApiService: QualificationApiService,
               public actRoute: ActivatedRoute,
               public router: Router)  {}

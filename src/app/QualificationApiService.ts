@@ -8,7 +8,7 @@ import {Qualification} from "./Qualification";
 })
 export class QualificationApiService {
   //Define the Qualification API
-  baseURL = 'http://localhost:4200';
+  baseURL = 'http://localhost:8089';
   constructor(private httpClient: HttpClient) {}
 
   /*===================
@@ -21,29 +21,29 @@ export class QualificationApiService {
   };
 
   getQualifications(): Observable<Qualification[]> {
-      return this.httpClient.get<Qualification[]>(this.baseURL + '/list-qualification')
-        .pipe(retry(1));
+      return this.httpClient.get<Qualification[]>(this.baseURL + '/qualifications')
+        .pipe(retry(2));
     }
 
     getQualificationById(id: any): Observable<Qualification> {
-      return this.httpClient.get<Qualification>(this.baseURL + '/list-qualification/' + id)
+      return this.httpClient.get<Qualification>(this.baseURL + 'qualifications/' + id)
         .pipe(retry(1));
     }
 
     createQualification(qualification: any): Observable<Qualification> {
-      return this.httpClient.post<Qualification>(this.baseURL + '/list-qualification'
+      return this.httpClient.post<Qualification>(this.baseURL + '/qualifications'
         ,JSON.stringify(qualification), this.httpOptions)
         .pipe(retry(1));
     }
 
     editQualification(id: any, qualification: any): Observable<Qualification> {
-      return this.httpClient.put<Qualification>(this.baseURL + '/edit-qualification/' + id,
+      return this.httpClient.put<Qualification>(this.baseURL + 'qualifications/' + id,
         JSON.stringify(qualification),this.httpOptions)
         .pipe(retry(1));
     }
 
     deleteQualification(id: any): Observable<Qualification> {
-      return this.httpClient.delete<Qualification>(this.baseURL + '/qualifications/' + id, this.httpOptions)
+      return this.httpClient.delete<Qualification>(this.baseURL + 'qualifications/' + id, this.httpOptions)
         .pipe(retry(1));
     }
 
