@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { SkillForFormsComponent } from './skill-for-forms/skill-for-forms.component';
 
 export function kcFacotry(kcSecService: KeycloakService) {
   return () => kcSecService.init();
@@ -21,12 +22,14 @@ export function kcFacotry(kcSecService: KeycloakService) {
 
 @NgModule({
   declarations: [
+    AddEmployeeComponent,
+    AddQualificationComponent,
     AppComponent,
+    EditQualificationComponent,
     EmployeeListComponent,
     HeaderComponent,
-    AddQualificationComponent,
     ListQualificationComponent,
-    EditQualificationComponent,
+    SkillForFormsComponent,
   ],
   imports: [
     AddEmployeeComponent,
