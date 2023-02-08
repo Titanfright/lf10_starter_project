@@ -15,8 +15,7 @@ export class EditEmployeeComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,
               private editEmployeeService: EditEmployeeService,
-              private router: Router
-  ) {
+              private router: Router) {
 
   }
 
@@ -28,6 +27,7 @@ export class EditEmployeeComponent implements OnInit{
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.editEmployeeService.getEmployee(id)
       .subscribe(employee => this.e = employee);
+    console.log(id);
   }
 
   save(): void {
@@ -40,6 +40,8 @@ export class EditEmployeeComponent implements OnInit{
           .subscribe();
         this.router.navigate(['employee']);
       }
+      this.editEmployeeService.updateEmployee(this.e)
+        .subscribe();
     }
   }
 

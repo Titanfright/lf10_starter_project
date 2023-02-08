@@ -14,8 +14,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/employee', pathMatch: 'full' },
   { path: 'employee', component: EmployeeListComponent, canActivate: [AuthGuard] },
   { path: 'employee-edit/:id', component: EditEmployeeComponent,  canActivate: [AuthGuard] },
-  { path: 'employee-add', component: AddEmployeeComponent,  canActivate: [AuthGuard] }
-  { path: 'employee-edit', component: EditEmployeeComponent }
+  { path: 'employee-add', component: AddEmployeeComponent,  canActivate: [AuthGuard] },
   { path: 'header', component: HeaderComponent, canActivate: [AuthGuard]},
   { path: 'add-qualification', component: AddQualificationComponent, canActivate: [AuthGuard]},
   { path: 'list-qualification', component: ListQualificationComponent, canActivate: [AuthGuard]},

@@ -26,6 +26,7 @@ export class EditEmployeeService {
     return this.http.get<Employee>(url).pipe (
       retry (1),
       catchError(this.handleError))
+    return this.http.get<Employee>(url);
   }
 
   updateEmployee(employee: Employee): Observable<any> {
@@ -33,6 +34,7 @@ export class EditEmployeeService {
     return this.http.put(url, employee, this.httpOptions).pipe (
       retry (1),
       catchError(this.handleError));
+    return this.http.put(url, employee, this.httpOptions);
   }
 
   deleteEmployee(employee: Employee): Observable<any> {

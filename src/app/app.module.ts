@@ -8,8 +8,6 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import {KeycloakAngularModule, KeycloakBearerInterceptor, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
-import { HeaderComponent } from './header/header.component';
-import {FormsModule} from "@angular/forms";
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import {AddQualificationComponent} from "./add-qualification/add-qualification.component";
 import {HeaderComponent} from "./header/header.component";
@@ -17,7 +15,6 @@ import {ListQualificationComponent} from "./list-qualification/list-qualificatio
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Qualification} from "./Qualification";
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
-import {TokenInterceptorService} from "../token-interceptor.service";
 
 export function kcFacotry(kcSecService: KeycloakService) {
   return () => kcSecService.init();
@@ -29,13 +26,10 @@ import { SkillForFormsComponent } from './skill-for-forms/skill-for-forms.compon
     AppComponent,
     EmployeeListComponent,
     EditEmployeeComponent,
-    HeaderComponent
-    EmployeeListComponent,
     HeaderComponent,
     AddQualificationComponent,
     ListQualificationComponent,
     EditQualificationComponent,
-    HeaderComponent,
     AddEmployeeComponent,
     SkillForFormsComponent
   ],
