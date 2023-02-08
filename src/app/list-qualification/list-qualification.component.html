@@ -12,13 +12,12 @@
     <a href="#" class="btn" (click)="editEntry(i)">Edit</a>
     <a href="#" class="btn" (click)="deleteEntry(i)">Delete</a>
   </div> --->
-
+<app-header-component></app-header-component>
 <div class="container custom-container-2">
   <div class="no-data text-center" *ngIf="Qualification.length == 0">
     <p>There is no qualification added yet!</p>
     <button class="btn btn-outline-primary" routerLink="/add-qualification">
-      Add Qualification
-    </button>
+      Add Qualification</button>
   </div>
 
   <div *ngIf="Qualification.length !== 0">
@@ -26,10 +25,10 @@
 
     <div>
       <hr>
-      <div *ngFor="let qualification of Qualification">
+      <div *ngFor="let qualification of Qualification" >
         <p>
-          {{qualification.designation}}
-          <span class="delete" (click)="deleteQualification(qualification.designation)">
+          {{qualification.skill}}
+          <span class="delete" (click)="deleteQualification(qualification.skill)">
             <img src="https://site-assets.fontawesome.com/releases/v6.3.0/svgs/solid/trash.svg" style="height: 0.8em">
           </span>
         </p>
@@ -38,3 +37,4 @@
     </div>
   </div>
 </div>
+<app-add-qualification></app-add-qualification>

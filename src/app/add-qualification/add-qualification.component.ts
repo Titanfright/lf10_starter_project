@@ -12,7 +12,7 @@ import {Qualification} from "../Qualification";
   })
 
 export class AddQualificationComponent implements OnInit {
-  @Input() qualificationsDetails = {designation: '', id: ''};
+  @Input() qualificationsDetails = {skill: '', id: ''};
 
   constructor(public router: Router,
               public callApiService: QualificationApiService,

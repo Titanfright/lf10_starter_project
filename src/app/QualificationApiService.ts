@@ -32,10 +32,10 @@ export class QualificationApiService {
       .pipe(retry(1));
   }
 
-  getQualificationById(designation: string): Observable<Qualification> {
+  getQualificationById(skill: string): Observable<Qualification> {
     let array2 = {
       headers: this.httpOptions.headers,
-      body: JSON.stringify({"designation": designation})
+      body: JSON.stringify({"skill": skill})
     };
     return this.httpClient.get<Qualification>(this.baseURL + '/qualifications', array2)
       .pipe(retry(1));
@@ -53,10 +53,10 @@ export class QualificationApiService {
       .pipe(retry(1));
   }
 
-  deleteQualification(designation: string): Observable<Qualification> {
+  deleteQualification(skill: string): Observable<Qualification> {
     let array2 = {
       headers: this.httpOptions.headers,
-      body: JSON.stringify({"designation": designation})
+      body: JSON.stringify({"skill": skill})
     };
     return this.httpClient.delete<Qualification>(this.baseURL + '/qualifications', array2)
       .pipe(retry(1));
