@@ -22,6 +22,7 @@ import {TokenInterceptorService} from "../token-interceptor.service";
 export function kcFacotry(kcSecService: KeycloakService) {
   return () => kcSecService.init();
 }
+import { SkillForFormsComponent } from './skill-for-forms/skill-for-forms.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ export function kcFacotry(kcSecService: KeycloakService) {
     ListQualificationComponent,
     EditQualificationComponent,
     HeaderComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    SkillForFormsComponent
   ],
     imports: [
         BrowserModule,

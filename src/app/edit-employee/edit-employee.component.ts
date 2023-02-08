@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Employee} from "../Employee";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {EditEmployeeService} from "../edit-employee.service";
 
 @Component({
@@ -11,9 +11,11 @@ import {EditEmployeeService} from "../edit-employee.service";
 export class EditEmployeeComponent implements OnInit{
 
   e: Employee | undefined;
+  regPostcode = new RegExp('^\d{5}$');
 
   constructor(private route: ActivatedRoute,
-              private editEmployeeService: EditEmployeeService
+              private editEmployeeService: EditEmployeeService,
+              private router: Router
   ) {
 
   }
@@ -26,13 +28,18 @@ export class EditEmployeeComponent implements OnInit{
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.editEmployeeService.getEmployee(id)
       .subscribe(employee => this.e = employee);
-    console.log(id);
   }
 
   save(): void {
     if (this.e) {
-      this.editEmployeeService.updateEmployee(this.e)
-        .subscribe();
+      if(! this.regPostcode.test(this.e.postcode==null?"":this.e.postcode)){
+        alert("The postal code must consist of 5 numbers.");
+      }
+      else {
+        this.editEmployeeService.updateEmployee(this.e)
+          .subscribe();
+        this.router.navigate(['employee']);
+      }
     }
   }
 
@@ -40,6 +47,7 @@ export class EditEmployeeComponent implements OnInit{
     if (this.e) {
       this.editEmployeeService.deleteEmployee(this.e)
         .subscribe();
+      this.router.navigate(['employee']);
     }
   }
 }

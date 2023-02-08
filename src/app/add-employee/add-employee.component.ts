@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class AddEmployeeComponent implements OnInit {
   e: Employee | undefined;
+  regPostcode = /^\d{5}$/;
 
   constructor(private addEmployeeService: AddEmployeeService, private router: Router) {
   }
@@ -24,9 +25,14 @@ export class AddEmployeeComponent implements OnInit {
 
   createEmployee(): void{
     if (this.e) {
-      this.addEmployeeService.addEmployee(this.e)
-        .subscribe();
-      //this.router.navigate(['employee']);
+      if(! this.regPostcode.test(this.e.postcode==null?"":this.e.postcode)){
+        alert("The postal code must consist of 5 numbers.");
+      }
+      else {
+        this.addEmployeeService.addEmployee(this.e)
+          .subscribe();
+        this.router.navigate(['employee']);
+      }
     }
   }
 }
