@@ -12,7 +12,13 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent {
 
-  bearer = 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzUFQ0dldiNno5MnlQWk1EWnBqT1U0RjFVN0lwNi1ELUlqQWVGczJPbGU0In0.eyJleHAiOjE2NzU4NzAxNjAsImlhdCI6MTY3NTg2NjU2MCwianRpIjoiNjNmZDNmMGUtNmU5ZC00ZjM4LTk5YzQtN2Y0OGRmZDUxNWQ5IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay5zenV0LmRldi9hdXRoL3JlYWxtcy9zenV0IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjU1NDZjZDIxLTk4NTQtNDMyZi1hNDY3LTRkZTNlZWRmNTg4OSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImVtcGxveWVlLW1hbmFnZW1lbnQtc2VydmljZSIsInNlc3Npb25fc3RhdGUiOiJhYWEyMTA1YS05NmY0LTQ1YjMtODUyOC05YWIxZWQ5MGQzNmUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1zenV0IiwidW1hX2F1dGhvcml6YXRpb24iLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInByZWZlcnJlZF91c2VybmFtZSI6InVzZXIifQ.cdbCiMURvG3-b5X54OAx9WRlY9zw9pdUyfF6LNuIj41ysgQZxvfW47kVToNKrQYPSTWqRZ-gUKXhNJwHdiVA8CvtiVOsJT1wJLHTxjMOC0Erd6sHuyn0G6Q7JyCQAmlAGT9rjGmfsSkCKmziHZCooG5TGFPUpdR-NyN_tvZqMFr9PL6s_KOS0BJbyp-VKiG6XKFTLUWEg4Ab8q0nkxwRvlBFW6HQSG7inNgaVdUYke2RxZu_edIPzonS7HNYsg11u5pRnQ3LYYIM6s1YohPro6VZ25M_ZytS01JX1-jpUwFN3jcIod5cx2aC-QZiCdTv5__hChQlkhxO-nNF7Gpj6A'
+  public get_bearer() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "POST", "http://authproxy.szut.dev", false );
+    xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xmlHttp.send( "grant_type=password&client_id=employee-management-service&username=user&password=test" );
+    return JSON.parse(xmlHttp.responseText)["access_token"]
+  }
   employees$: Observable<Employee[]>;
 
   user = "";
@@ -29,7 +35,7 @@ export class EmployeeListComponent {
     this.employees$ = this.http.get<Employee[]>('/backend', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('Authorization', `Bearer ${this.bearer}`)
+        .set('Authorization', `Bearer ${this.get_bearer()}`)
     });
   }
 
