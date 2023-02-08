@@ -11,6 +11,7 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule} from "@angular/forms";
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { SkillForFormsComponent } from './skill-for-forms/skill-for-forms.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     EmployeeListComponent,
     EditEmployeeComponent,
     HeaderComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    SkillForFormsComponent
   ],
     imports: [
         BrowserModule,
