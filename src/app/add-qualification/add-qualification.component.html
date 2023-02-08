@@ -1,0 +1,13 @@
+<div class="container add-container">
+  <div class="col-md-12">
+    <h3 class="mb-3 text-center"> Create Qualification </h3>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="qualificationsDetails.designation" name="qualify" class="form-control"
+             placeholder="Enter Qualification">
+    </div>
+    <div class="form-group">
+      <a class="btn" (click)="(addQualification(qualificationsDetails))">Add Qualification</a>
+      <!-- <button class="btn btn-success btn-lg btn-block" (click)="addQualification(qualificationsDetails)">Create Qualification</button> --->
+    </div>
+  </div>
+</div>

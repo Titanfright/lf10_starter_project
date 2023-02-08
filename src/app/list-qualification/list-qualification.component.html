@@ -1,0 +1,46 @@
+<!--- <form (submit)='AddEntry()'>
+  <input
+    type="text"
+    name="inputEntry"
+    placeholder="Enter an Entry here.."
+    class="btn"[(ngModel)]="inputEntry">
+  <input type="submit" value="Add Entry" class="btn--submit">
+</form>
+  <div *ngFor="let entry of entries; let i = index;" class="flex-container {{(entry.completed ? 'done' : '')}}">
+  <div class="id">{{i}} </div>
+  <div class="content" (click)="toogleEntry(i)">{{entry.content}} </div>
+    <a href="#" class="btn" (click)="editEntry(i)">Edit</a>
+    <a href="#" class="btn" (click)="deleteEntry(i)">Delete</a>
+  </div> --->
+
+<div class="container custom-container-2">
+  <div class="no-data text-center" *ngIf="Qualification.length == 0">
+    <p>There is no qualification added yet!</p>
+    <button class="btn btn-outline-primary" routerLink="/add-qualification">
+      Add Qualification
+    </button>
+  </div>
+
+  <div *ngIf="Qualification.length !== 0">
+    <h2 class="mb-3 text-center"> Qualifications List </h2>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Qualification</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let qualification of Qualification ">
+          <td> {{qualification.designation }}</td>
+          <td>
+            <span class="edit" routerLink="/edit-qualification/{{qualification.designation}}">Edit</span>
+            <span class="delete" (click)="deleteQualification(qualification.designation)">Delete</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
