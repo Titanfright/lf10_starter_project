@@ -22,7 +22,7 @@
   </div>
 
   <div *ngIf="Qualification.length !== 0">
-    <h3 class="mb-3 text-center"> Qualifications List </h3>
+    <h2 class="mb-3 text-center"> Qualifications List </h2>
 
     <div class="col-md-12">
       <table class="table table-bordered">
@@ -33,12 +33,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let qualification of Qualification">
-          <td> {{qualification.id }}</td>
-          <td> {{qualification.qualification }}</td>
+        <tr *ngFor="let qualification of Qualification; index as i ">
+          <td> {{i +1}}</td>
+          <td> {{qualification.designation }}</td>
           <td>
-            <span class="edit" routerLink="/edit-qualification/{{qualification.id}}">Edit</span>
-            <span class="delete" (click)="deleteQualification(qualification.id)">Delete</span>
+            <span class="edit" routerLink="/edit-qualification/{{i +1}}">Edit</span>
+            <span class="delete" (click)="deleteQualification(i +1)">Delete</span>
           </td>
         </tr>
         </tbody>

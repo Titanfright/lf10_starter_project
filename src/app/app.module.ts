@@ -41,12 +41,7 @@ export function kcFacotry(kcSecService: KeycloakService) {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
-      deps: [KeycloakService]},
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: KeycloakBearerInterceptor,
-      multi: true,
-      useFactory: kcFacotry }
+      deps: [KeycloakService]}
 
   ],
   bootstrap: [AppComponent]
