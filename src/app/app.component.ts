@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {AddQualificationComponent} from "./add-qualification/add-qualification.component";
 import {HeaderComponent} from "./header/header.component";
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,10 @@ export class AppComponent {
 
   constructor() {
  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  beforeunloadHandler(event:any) {
+    return false;
+  }
 
 }
