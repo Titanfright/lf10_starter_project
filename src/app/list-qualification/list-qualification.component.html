@@ -24,23 +24,17 @@
   <div *ngIf="Qualification.length !== 0">
     <h2 class="mb-3 text-center"> Qualifications List </h2>
 
-    <div class="col-md-12">
-      <table class="table table-bordered">
-        <thead>
-        <tr>
-          <th scope="col">Qualification</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let qualification of Qualification ">
-          <td> {{qualification.designation }}</td>
-          <td>
-            <span class="edit" routerLink="/edit-qualification/{{qualification.designation}}">Edit</span>
-            <span class="delete" (click)="deleteQualification(qualification.designation)">Delete</span>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div>
+      <hr>
+      <div *ngFor="let qualification of Qualification">
+        <p>
+          {{qualification.designation}}
+          <span class="delete" (click)="deleteQualification(qualification.designation)">
+            <img src="https://site-assets.fontawesome.com/releases/v6.3.0/svgs/solid/trash.svg" style="height: 0.8em">
+          </span>
+        </p>
+        <hr>
+      </div>
     </div>
   </div>
 </div>
