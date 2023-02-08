@@ -1,6 +1,5 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +14,6 @@ import {ListQualificationComponent} from "./list-qualification/list-qualificatio
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
 import { SkillForFormsComponent } from './skill-for-forms/skill-for-forms.component';
-
 export function kcFacotry(kcSecService: KeycloakService) {
   return () => kcSecService.init();
 }
@@ -31,6 +29,7 @@ export function kcFacotry(kcSecService: KeycloakService) {
     HeaderComponent,
     ListQualificationComponent,
     SkillForFormsComponent,
+    EditQualificationComponent,
   ],
   imports: [
     AppRoutingModule,
