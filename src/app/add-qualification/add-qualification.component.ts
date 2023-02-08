@@ -19,7 +19,7 @@ export class AddQualificationComponent implements OnInit {
               public httpClient: HttpClient) {}
 
   ngOnInit() {
-    this.httpClient.get('http://localhost:8089/qualifications', {observe: "response"})
+    this.httpClient.get('/backend/qualifications', {observe: "response"})
       .subscribe(data => {
         console.log(data);
     })

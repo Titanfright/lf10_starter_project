@@ -28,17 +28,15 @@
       <table class="table table-bordered">
         <thead>
         <tr>
-          <th scope="col">Qualification Id</th>
           <th scope="col">Qualification</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let qualification of Qualification; index as i ">
-          <td> {{i +1}}</td>
+        <tr *ngFor="let qualification of Qualification ">
           <td> {{qualification.designation }}</td>
           <td>
-            <span class="edit" routerLink="/edit-qualification/{{i +1}}">Edit</span>
-            <span class="delete" (click)="deleteQualification(i +1)">Delete</span>
+            <span class="edit" routerLink="/edit-qualification/{{qualification.designation}}">Edit</span>
+            <span class="delete" (click)="deleteQualification(qualification.designation)">Delete</span>
           </td>
         </tr>
         </tbody>
