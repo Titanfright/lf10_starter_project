@@ -14,6 +14,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Qualification} from "./Qualification";
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
 import {TokenInterceptorService} from "../token-interceptor.service";
+import { FilterComponent } from './filter/filter.component';
+import { FilterPipe } from './filter.pipe';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 export function kcFacotry(kcSecService: KeycloakService) {
   return () => kcSecService.init();
@@ -27,6 +30,9 @@ export function kcFacotry(kcSecService: KeycloakService) {
     AddQualificationComponent,
     ListQualificationComponent,
     EditQualificationComponent,
+    FilterComponent,
+    FilterPipe,
+    //SearchPipe
   ],
   imports: [
     BrowserModule,
