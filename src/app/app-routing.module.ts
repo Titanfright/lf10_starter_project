@@ -8,7 +8,6 @@ import {HeaderComponent} from "./header/header.component";
 import {AddQualificationComponent} from "./add-qualification/add-qualification.component";
 import {ListQualificationComponent} from "./list-qualification/list-qualification.component";
 import {EditQualificationComponent} from "./edit-qualification/edit-qualification.component";
-import {Ng2SearchPipe} from "ng2-search-filter";
 
 
 const routes: Routes = [
