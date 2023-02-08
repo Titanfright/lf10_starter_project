@@ -12,7 +12,7 @@ import {Qualification} from "../Qualification";
   })
 
 export class AddQualificationComponent implements OnInit {
-  @Input() qualificationsDetails = {qualification: ''};
+  @Input() qualificationsDetails = {designation: '', id: ''};
 
   constructor(public router: Router,
               public callApiService: QualificationApiService,
@@ -28,7 +28,7 @@ export class AddQualificationComponent implements OnInit {
   addQualification(dataQualification: any) {
     this.callApiService.createQualification(this.qualificationsDetails)
       .subscribe((data: {}) => {
-        this.router.navigate(['/qualifications']);
+        this.router.navigate(['/list-qualification']);
       });
   }
   /*onSubmit() {
