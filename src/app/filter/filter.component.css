@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 15px;
+  width: 50%;
+}
+
+.mat-column-id {
+  max-width: 100px;
+}
+
+.mat-column-lastName {
+  max-width: 100px;
+}
+
+.mat-column-firstName {
+  max-width: 100px;
+}
+
+.mat-column-designation {
+  max-width: 100px;
+}
