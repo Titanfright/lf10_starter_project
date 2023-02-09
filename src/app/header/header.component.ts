@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'app-header-component',
@@ -8,5 +9,6 @@ import {Component} from "@angular/core";
 })
 
 export class HeaderComponent {
+
   constructor() {}
 }

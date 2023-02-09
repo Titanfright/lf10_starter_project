@@ -97,3 +97,38 @@ Des Weiteren ist der Client mit der Bezeichnung employee-management-service-fron
 
 Trage hier die Features ein, die nicht funktionieren. Beschreibe den jeweiligen Fehler. 
 
+**Fehler:** 
+
+### Filter-Component
+1. Filter scheint nicht korrekt verlinkt zu sein.
+2. Filter filtert nicht, einen Employee mit Qualifikation, sondern derzeit aus einem Array.
+3. Filter funktionert möglicherweise nicht anständig.
+
+### Employee-Component
+1. Employeeeliste wird nicht geladen
+
+**Probleme:**
+
+### Docker: 
+1. Kompillierungprobleme
+2. Inkonsistenter Output zwischen Versionen mal läuft es bei einem oder allen und dann wieder nicht.
+3. closed-Source → nicht in der Lage, undokumentierte Dinge zu betrachten.
+3. Docker Abstürze 
+4. Docker Image (Nicht alle Ressourcen gleichermaßen abrufbar)
+
+### KeyCloak
+1. Keycloak Setup
+2. Keycloak Anmeldung
+3. Keycloak Grundverständis
+
+## Angular 
+1. fehlender Tracepak wenn Build fehlschägt.
+2. Angular Grundverständis
+
+## Allgemein
+1. Zu viele schulische Projekte gleichzeitig, was zu Folge hatte, dass nicht Kontinurichlich am Frontend gearbeitet werden konnte.
+2. Viele hilfreiche Werkzeuge wie GitHub-SSH sind nicht oder nur eingeschränkt erreichbar, was wiederum die kontinuierliche Arbeit in der Schule beiträgt.
+3. Endpunkte könnten von uns erst nicht richtig nachvollzogen werden. 
+
+  
+

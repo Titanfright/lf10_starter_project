@@ -8,6 +8,7 @@ import {HeaderComponent} from "./header/header.component";
 import {AddQualificationComponent} from "./add-qualification/add-qualification.component";
 import {ListQualificationComponent} from "./list-qualification/list-qualification.component";
 import {EditQualificationComponent} from "./edit-qualification/edit-qualification.component";
+import {FilterComponent} from "./filter/filter.component";
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: 'add-qualification', component: AddQualificationComponent, canActivate: [AuthGuard]},
   { path: 'list-qualification', component: ListQualificationComponent, canActivate: [AuthGuard]},
   { path: 'edit-qualification/:id', component: EditQualificationComponent, canActivate: [AuthGuard] },
+  { path: 'filter', component: FilterComponent},
   { path: '***', component: HeaderComponent}
+
 ];
 
 @NgModule({
