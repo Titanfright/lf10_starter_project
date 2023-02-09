@@ -103,6 +103,7 @@ Trage hier die Features ein, die nicht funktionieren. Beschreibe den jeweiligen 
 1. Filter scheint nicht korrekt verlinkt zu sein.
 2. Filter filtert nicht, einen Employee mit Qualifikation, sondern derzeit aus einem Array.
 3. Filter funktionert möglicherweise nicht anständig.
+4. Feature/Filter kann sich der Filter ansehen werden.
 
 ### Employee-Component
 1. Employeeeliste wird nicht geladen
